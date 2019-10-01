@@ -19,11 +19,11 @@ public class Profile {
 
     private int score;
 
-    private int click_strength_level;
+    private int click_strength;
 
-    private int combo_multiplier_level;
+    private int combo_multiplier;
 
-    private int combo_speed_level;
+    private int combo_speed;
 
     public Profile(
             String username,
@@ -34,25 +34,25 @@ public class Profile {
         this.email = email;
         this.password = password;
         this.score = 0;
-        this.click_strength_level = 0;
-        this.combo_multiplier_level = 0;
-        this.combo_speed_level = 0;
+        this.click_strength = 0;
+        this.combo_multiplier = 0;
+        this.combo_speed = 0;
     }
 
     public void setScore(int score) {
         this.score = score;
     }
 
-    public void setClick_strength_level(int click_strength_level) {
-        this.click_strength_level = click_strength_level;
+    public void setClick_strength(int click_strength) {
+        this.click_strength = click_strength;
     }
 
-    public void setCombo_multiplier_level(int combo_multiplier_level) {
-        this.combo_multiplier_level = combo_multiplier_level;
+    public void setCombo_multiplier(int combo_multiplier) {
+        this.combo_multiplier = combo_multiplier;
     }
 
-    public void setCombo_speed_level(int combo_speed_level) {
-        this.combo_speed_level = combo_speed_level;
+    public void setCombo_speed(int combo_speed) {
+        this.combo_speed = combo_speed;
     }
 
     public String getUsername() {
@@ -71,15 +71,15 @@ public class Profile {
         return score;
     }
 
-    public int getClick_strength_level() {
-        return click_strength_level;
+    public int getClick_strength() {
+        return click_strength;
     }
 
-    public int getCombo_multiplier_level() {
-        return combo_multiplier_level;
+    public int getCombo_multiplier() {
+        return combo_multiplier;
     }
 
-    public int getCombo_speed_level() {
-        return combo_speed_level;
+    public int getCombo_speed() {
+        return combo_speed;
     }
 }
