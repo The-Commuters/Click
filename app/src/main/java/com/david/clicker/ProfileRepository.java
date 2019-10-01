@@ -30,11 +30,11 @@ public class ProfileRepository {
         new deleteProfileAsyncTask(profileDao).execute(profile);
     }
 
-    public void deleteAllNotes() {
+    public void deleteAllProfiles() {
         new deleteAllProfilesAsyncTask(profileDao).execute();
     }
 
-    public LiveData<List<Profile>> getAllNotes() {
+    public LiveData<List<Profile>> getAllProfiles() {
         return allProfiles;
     }
 

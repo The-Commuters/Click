@@ -9,6 +9,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ProfileActivity extends AppCompatActivity {
+    private TextView scoreField;
+    private EditText usernameField;
+    private EditText emailField;
+    private EditText passwordField;
 
     public static String EXTRA_SCORE = "score";
     public static String EXTRA_USERNAME = "username";
@@ -23,23 +27,19 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         extras = getIntent().getExtras();
 
-        TextView scoreField = findViewById(R.id.score_text_view);
-        Integer score = extras.getInt(EXTRA_SCORE, 0);
-        scoreField.setText(score.toString());
+        scoreField = findViewById(R.id.score_text_view);
+        usernameField = findViewById(R.id.edit_text_username);
+        emailField = findViewById(R.id.edit_text_email);
+        passwordField = findViewById(R.id.edit_text_password);
 
-        EditText usernameField = findViewById(R.id.edit_text_username);
-        renderField(usernameField, EXTRA_USERNAME, true);
-
-        EditText emailField = findViewById(R.id.edit_text_email);
-        renderField(emailField, EXTRA_EMAIL, true);
-
-        EditText passwordField = findViewById(R.id.edit_text_password);
-        renderField(passwordField, EXTRA_PASSWORD, true);
+        scoreField.setText(Integer.toString(1000));
+        buildField(usernameField, "David", true);
+        buildField(emailField, "david.naist@mail.com", true);
+        buildField(passwordField, "Password", true);
     }
 
-    public void renderField(EditText field, String input, Boolean disabled) {
-        String data = extras.getString(input, "Processing");
-        field.setText(data);
+    public void buildField(EditText field, String text, Boolean disabled) {
+        field.setText(text);
         if (disabled) {
             field.setEnabled(false);
             field.setInputType(InputType.TYPE_NULL);

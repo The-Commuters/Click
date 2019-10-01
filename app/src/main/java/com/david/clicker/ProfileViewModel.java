@@ -17,7 +17,7 @@ public class ProfileViewModel extends AndroidViewModel {
     public ProfileViewModel(@NonNull Application application) {
         super(application);
         profileRepository = new ProfileRepository(application);
-        allProfiles = profileRepository.getAllNotes();
+        allProfiles = profileRepository.getAllProfiles();
     }
 
     public void insert(Profile profile) {
@@ -33,7 +33,7 @@ public class ProfileViewModel extends AndroidViewModel {
     }
 
     public void deleteAllNotes() {
-        profileRepository.deleteAllNotes();
+        profileRepository.deleteAllProfiles();
     }
 
     public LiveData<List<Profile>> getAllProfiles() {

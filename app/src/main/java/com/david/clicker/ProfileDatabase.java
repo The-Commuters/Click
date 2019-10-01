@@ -46,9 +46,9 @@ public abstract class ProfileDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            profileDao.insert(new Profile("Ripmoff", "David.Naist@gmail.com", "12345", 3, 1000));
-            profileDao.insert(new Profile("Mafen", "markusfenes@gmail.com", "12345", 2, 1000));
-            profileDao.insert(new Profile("Harimir", "mads.hagen@gmail.com", "12345", 1, 1000));
+            profileDao.insert(new Profile("Ripmoff", "David.Naist@gmail.com", "12345"));
+            profileDao.insert(new Profile("Mafen", "markusfenes@gmail.com", "12345"));
+            profileDao.insert(new Profile("Harimir", "mads.hagen@gmail.com", "12345"));
             return null;
         }
     }

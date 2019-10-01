@@ -84,11 +84,4 @@
             android:ellipsize="end" />
     </LinearLayout>
 
-
-    <ImageButton
-        android:id="@+id/save_profile_edit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_save" />
-
 </LinearLayout>
