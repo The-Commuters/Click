@@ -2,9 +2,13 @@ package com.david.clicker;
 
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,10 +39,34 @@ public class ProfileActivity extends AppCompatActivity {
         scoreField.setText(Integer.toString(1000));
         buildField(usernameField, "David", true);
         buildField(emailField, "david.naist@mail.com", true);
-        buildField(passwordField, "Password", true);
+
+        setTitle("David");
     }
 
-    public void buildField(EditText field, String text, Boolean disabled) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.close_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.close:
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
+    private void saveProfile() {
+
+    }
+
+    private void buildField(EditText field, String text, Boolean disabled) {
         field.setText(text);
         if (disabled) {
             field.setEnabled(false);

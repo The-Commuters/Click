@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "2e0d50c1874bd4188f7003cb0ccf6e60",
+    "identityHash": "314670f6adf50501163669db14039225",
     "entities": [
       {
         "tableName": "profile_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`username` TEXT NOT NULL, `email` TEXT, `password` TEXT, `score` INTEGER NOT NULL, `click_strength_level` INTEGER NOT NULL, `combo_multiplier_level` INTEGER NOT NULL, `combo_speed_level` INTEGER NOT NULL, PRIMARY KEY(`username`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`username` TEXT NOT NULL, `email` TEXT, `password` TEXT, `score` INTEGER NOT NULL, `click_strength` INTEGER NOT NULL, `combo_multiplier` INTEGER NOT NULL, `combo_speed` INTEGER NOT NULL, PRIMARY KEY(`username`))",
         "fields": [
           {
             "fieldPath": "username",
@@ -33,20 +33,20 @@
             "notNull": true
           },
           {
-            "fieldPath": "click_strength_level",
-            "columnName": "click_strength_level",
+            "fieldPath": "click_strength",
+            "columnName": "click_strength",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "combo_multiplier_level",
-            "columnName": "combo_multiplier_level",
+            "fieldPath": "combo_multiplier",
+            "columnName": "combo_multiplier",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "combo_speed_level",
-            "columnName": "combo_speed_level",
+            "fieldPath": "combo_speed",
+            "columnName": "combo_speed",
             "affinity": "INTEGER",
             "notNull": true
           }
@@ -73,7 +73,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2e0d50c1874bd4188f7003cb0ccf6e60')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '314670f6adf50501163669db14039225')"
     ]
   }
 }

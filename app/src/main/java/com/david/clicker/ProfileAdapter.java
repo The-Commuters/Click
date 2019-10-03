@@ -28,7 +28,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileH
     @Override
     public void onBindViewHolder(@NonNull ProfileHolder holder, int position) {
         Profile currentProfile = profiles.get(position);
-        holder.textViewUserame.setText(currentProfile.getUsername());
+        holder.textViewUsername.setText(currentProfile.getUsername());
         holder.textViewScore.setText(String.valueOf(currentProfile.getScore()));
         holder.textViewEmail.setText(currentProfile.getEmail());
     }
@@ -49,7 +49,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileH
 
     class ProfileHolder extends RecyclerView.ViewHolder {
 
-        private TextView textViewUserame;
+        private TextView textViewUsername;
 
         private TextView textViewScore;
 
@@ -57,7 +57,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileH
 
         public ProfileHolder(@NonNull View itemView) {
             super(itemView);
-            textViewUserame = itemView.findViewById(R.id.text_view_username);
+            textViewUsername = itemView.findViewById(R.id.text_view_username);
             textViewScore = itemView.findViewById(R.id.text_view_score);
             textViewEmail = itemView.findViewById(R.id.text_view_email);
 
