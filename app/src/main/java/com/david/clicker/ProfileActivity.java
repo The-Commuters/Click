@@ -53,7 +53,7 @@ public class ProfileActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        ProfileApi profileApi = retrofit.create(ProfileApi.class);
+        GameApi profileApi = retrofit.create(GameApi.class);
 
         Call<Profiles> call = profileApi.getProfiles();
 

@@ -11,4 +11,8 @@ public class Profiles {
     public List<Profile> getProfiles() {
         return profiles;
     }
+
+    public void setProfiles(List<Profile> profiles) {
+        this.profiles = profiles;
+    }
 }
