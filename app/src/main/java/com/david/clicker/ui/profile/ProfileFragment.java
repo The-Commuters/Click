@@ -47,7 +47,7 @@ public class ProfileFragment extends Fragment {
         profileViewModel.getAllProfiles().observe(this, new Observer<List<Profile>>() {
             @Override
             public void onChanged(List<Profile> profiles) {
-                profileAdapter.setProfiles(profiles);
+                profileAdapter.submitList(profiles);
             }
         });
 

@@ -6,16 +6,32 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileHolder> {
-
-    private List<Profile> profiles = new ArrayList<>();
+public class ProfileAdapter extends ListAdapter<Profile, ProfileAdapter.ProfileHolder> {
 
     private onItemClickListener listener;
+
+    public ProfileAdapter() {
+        super(DIFF_CALLBACK);
+    }
+
+    private static final DiffUtil.ItemCallback<Profile> DIFF_CALLBACK = new DiffUtil.ItemCallback<Profile>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull Profile oldItem, @NonNull Profile newItem) {
+            return oldItem.getUsername().equals(newItem.getUsername());
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull Profile oldItem, @NonNull Profile newItem) {
+            return (oldItem.getUsername().equals(newItem.getUsername())
+                            && oldItem.getEmail().equals(newItem.getEmail())
+                            && oldItem.getPassword().equals(newItem.getPassword())
+            );
+        }
+    };
 
     @NonNull
     @Override
@@ -27,24 +43,14 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileH
 
     @Override
     public void onBindViewHolder(@NonNull ProfileHolder holder, int position) {
-        Profile currentProfile = profiles.get(position);
+        Profile currentProfile = getItem(position);
         holder.textViewUsername.setText(currentProfile.getUsername());
         holder.textViewScore.setText(String.valueOf(currentProfile.getScore()));
         holder.textViewEmail.setText(currentProfile.getEmail());
     }
 
-    @Override
-    public int getItemCount() {
-        return profiles.size();
-    }
-
-    public void setProfiles(List<Profile> profiles) {
-        this.profiles = profiles;
-        notifyDataSetChanged();
-    }
-
     public Profile getProfileAt(int position) {
-        return profiles.get(position);
+        return getItem(position);
     }
 
     class ProfileHolder extends RecyclerView.ViewHolder {
@@ -66,7 +72,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileH
                 public void onClick(View view) {
                     int position = getAdapterPosition();
                     if (listener != null && position != RecyclerView.NO_POSITION) {
-                        Profile profile = profiles.get(position);
+                        Profile profile = getItem(position);
                         listener.onItemClick(profile);
                     }
                 }
