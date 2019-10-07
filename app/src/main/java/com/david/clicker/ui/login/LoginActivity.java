@@ -1,5 +1,7 @@
 package com.david.clicker.ui.login;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -10,10 +12,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
+import com.david.clicker.MainActivity;
 import com.david.clicker.R;
 import com.david.clicker.data.entities.Profile;
 import com.david.clicker.data.local.ProfileDao;
+import com.david.clicker.ui.profile.ProfileActivity;
 import com.david.clicker.ui.profile.ProfileViewModel;
 
 
@@ -48,6 +54,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 Log.d("Login", "I was clicked");
 
+                final Intent returnIntent = new Intent();
+
+                //http://www.acarlstein.com/?p=4029
 
                 final Handler handler = new Handler();
                 (new Thread(new Runnable() {
@@ -61,6 +70,11 @@ public class LoginActivity extends AppCompatActivity {
                                     ;
                                 Toast.makeText(getApplication(), "Welcome " + profile.getUsername(),
                                         Toast.LENGTH_LONG).show();
+
+
+                                setResult(Activity.RESULT_OK, returnIntent);
+                                finish();
+
                             }
                         });
                     }
@@ -70,6 +84,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         });
+
 
     }
 
