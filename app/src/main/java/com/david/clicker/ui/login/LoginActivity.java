@@ -54,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 Log.d("Login", "I was clicked");
 
+
                 final Intent returnIntent = new Intent();
 
                 //http://www.acarlstein.com/?p=4029
@@ -84,7 +85,6 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         });
-
 
     }
 
