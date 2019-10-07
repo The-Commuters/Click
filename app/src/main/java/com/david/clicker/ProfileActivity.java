@@ -31,6 +31,9 @@ public class ProfileActivity extends AppCompatActivity {
     private Bundle extras;
     private ProfileViewModel profileViewModel;
 
+    // New Stuff
+    private GameApi gameApi;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +48,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         scoreField.setText(Integer.toString(1000));
         usernameField.setText("David");
-        emailField.setText("david.naist@mail.com");
+        emailField.setText("");
 
         // new stuff
         Retrofit retrofit = new Retrofit.Builder()
@@ -53,9 +56,46 @@ public class ProfileActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        GameApi profileApi = retrofit.create(GameApi.class);
 
-        Call<Profiles> call = profileApi.getProfiles();
+        gameApi = retrofit.create(GameApi.class);
+
+        // createProfile();
+        // updateProfile();
+        readProfiles();
+        // readProfile();
+        // deleteProfile();
+    }
+
+    private void readProfile() {
+        Call<Profile> call = gameApi.readProfile("david");
+
+        call.enqueue(new Callback<Profile>() {
+            @Override
+            public void onResponse(Call<Profile> call, Response<Profile> response) {
+                if (!response.isSuccessful()) {
+                    emailField.setText("Code: " + response.code());
+                    return;
+                }
+
+                Profile profile = response.body();
+
+                String content = "";
+                content += "Username: " + profile.getUsername() + "\n";
+                content += "Email: " + profile.getEmail() + "\n\n";
+
+                emailField.append(content);
+
+            }
+
+            @Override
+            public void onFailure(Call<Profile> call, Throwable t) {
+                emailField.setText(t.getMessage());
+            }
+        });
+    }
+
+    private void readProfiles() {
+        Call<Profiles> call = gameApi.readProfiles();
 
         call.enqueue(new Callback<Profiles>() {
             @Override
@@ -77,6 +117,58 @@ public class ProfileActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Profiles> call, Throwable t) {
+                emailField.setText(t.getMessage());
+            }
+        });
+    }
+
+    private void createProfile() {
+        Profile profile = new Profile("Success", "some@email.com", "passsadswod");
+
+        Call<Integer> call = gameApi.createProfile(profile);
+
+        call.enqueue(new Callback<Integer>() {
+            @Override
+            public void onResponse(Call<Integer> call, Response<Integer> response) {
+                emailField.setText("Code: " + response.code() + ", Failure");
+            }
+
+            @Override
+            public void onFailure(Call<Integer> call, Throwable t) {
+                emailField.setText(t.getMessage());
+            }
+        });
+    }
+
+    private void updateProfile() {
+        Profile profile = new Profile(null, "Long email that is reallyyyy long", null);
+
+        Call<Integer> call = gameApi.updateProfile("david_2", profile);
+
+        call.enqueue(new Callback<Integer>() {
+            @Override
+            public void onResponse(Call<Integer> call, Response<Integer> response) {
+                emailField.setText("Code: " + response.code() + ", Failure");
+            }
+
+            @Override
+            public void onFailure(Call<Integer> call, Throwable t) {
+                emailField.setText(t.getMessage());
+            }
+        });
+    }
+
+    private void deleteProfile() {
+        Call<Integer> call = gameApi.deleteProfile("david_2");
+
+        call.enqueue(new Callback<Integer>() {
+            @Override
+            public void onResponse(Call<Integer> call, Response<Integer> response) {
+                emailField.setText("Code: " + response.code() + ", Failure");
+            }
+
+            @Override
+            public void onFailure(Call<Integer> call, Throwable t) {
                 emailField.setText(t.getMessage());
             }
         });
