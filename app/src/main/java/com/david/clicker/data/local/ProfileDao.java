@@ -1,4 +1,4 @@
-package com.david.clicker;
+package com.david.clicker.data.local;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -6,6 +6,8 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+
+import com.david.clicker.data.entities.Profile;
 
 import java.util.List;
 

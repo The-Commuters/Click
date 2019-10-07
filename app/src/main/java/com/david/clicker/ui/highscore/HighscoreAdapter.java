@@ -1,4 +1,4 @@
-package com.david.clicker;
+package com.david.clicker.ui.highscore;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,11 +10,14 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ProfileAdapter extends ListAdapter<Profile, ProfileAdapter.ProfileHolder> {
+import com.david.clicker.R;
+import com.david.clicker.data.entities.Profile;
+
+public class HighscoreAdapter extends ListAdapter<Profile, HighscoreAdapter.ProfileHolder> {
 
     private onItemClickListener listener;
 
-    public ProfileAdapter() {
+    public HighscoreAdapter() {
         super(DIFF_CALLBACK);
     }
 

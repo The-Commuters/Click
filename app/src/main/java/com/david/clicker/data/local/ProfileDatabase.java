@@ -1,4 +1,4 @@
-package com.david.clicker;
+package com.david.clicker.data.local;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -8,6 +8,8 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
+
+import com.david.clicker.data.entities.Profile;
 
 @Database(entities = Profile.class, version = 1)
 public abstract class ProfileDatabase extends RoomDatabase {

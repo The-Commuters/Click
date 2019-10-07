@@ -1,4 +1,4 @@
-package com.david.clicker;
+package com.david.clicker.ui.profile;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+
+import com.david.clicker.R;
+import com.david.clicker.data.entities.Profile;
+import com.david.clicker.data.entities.Profiles;
+import com.david.clicker.data.gameApi.GameApi;
 
 import retrofit2.Call;
 import retrofit2.Callback;

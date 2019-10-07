@@ -1,4 +1,4 @@
-package com.david.clicker.ui.profile;
+package com.david.clicker.ui.highscore;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,21 +16,20 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.david.clicker.Profile;
-import com.david.clicker.ProfileActivity;
-import com.david.clicker.ProfileAdapter;
-import com.david.clicker.ProfileViewModel;
+import com.david.clicker.data.entities.Profile;
+import com.david.clicker.ui.profile.ProfileActivity;
+import com.david.clicker.ui.profile.ProfileViewModel;
 import com.david.clicker.R;
 
 import java.util.List;
 
-public class ProfileFragment extends Fragment {
+public class HighscoreFragment extends Fragment {
 
     private ProfileViewModel profileViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_profile, container, false);
+        View root = inflater.inflate(R.layout.fragment_highscore, container, false);
 
         RecyclerView recyclerView = root.findViewById(R.id.recycler_view_profile);
         recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
@@ -40,14 +39,14 @@ public class ProfileFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         // Extra
 
-        final ProfileAdapter profileAdapter = new ProfileAdapter();
-        recyclerView.setAdapter(profileAdapter);
+        final HighscoreAdapter highscoreAdapter = new HighscoreAdapter();
+        recyclerView.setAdapter(highscoreAdapter);
 
         profileViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
         profileViewModel.getAllProfiles().observe(this, new Observer<List<Profile>>() {
             @Override
             public void onChanged(List<Profile> profiles) {
-                profileAdapter.submitList(profiles);
+                highscoreAdapter.submitList(profiles);
             }
         });
 
@@ -63,7 +62,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int position = viewHolder.getAdapterPosition();
-                Profile profile = profileAdapter.getProfileAt(position);
+                Profile profile = highscoreAdapter.getProfileAt(position);
                 String message;
 
                 switch (direction) {
@@ -81,7 +80,7 @@ public class ProfileFragment extends Fragment {
             }
         }).attachToRecyclerView(recyclerView);
 
-        profileAdapter.setOnItemClickListener(new ProfileAdapter.onItemClickListener() {
+        highscoreAdapter.setOnItemClickListener(new HighscoreAdapter.onItemClickListener() {
             @Override
             public void onItemClick(Profile profile) {
                 Intent intent = new Intent(getActivity(), ProfileActivity.class);

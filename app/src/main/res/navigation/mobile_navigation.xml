@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_game">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.david.clicker.ui.profile.ProfileFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_profile" />
-
-    <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_game"
         android:name="com.david.clicker.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_game"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_upgrade"
         android:name="com.david.clicker.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_upgrade"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_highscore"
+        android:name="com.david.clicker.ui.highscore.HighscoreFragment"
+        android:label="@string/title_highscore"
+        tools:layout="@layout/fragment_highscore" />
 </navigation>

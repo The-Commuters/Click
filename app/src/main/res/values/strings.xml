@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Clicker</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_highscore">Highscores</string>
+    <string name="title_game">Game</string>
+    <string name="title_upgrade">Upgrades</string>
 </resources>

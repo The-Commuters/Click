@@ -1,10 +1,13 @@
-package com.david.clicker;
+package com.david.clicker.ui.profile;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+
+import com.david.clicker.data.entities.Profile;
+import com.david.clicker.data.repository.ProfileRepository;
 
 import java.util.List;
 

@@ -1,9 +1,13 @@
-package com.david.clicker;
+package com.david.clicker.data.repository;
 
 import android.app.Application;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
+
+import com.david.clicker.data.entities.Profile;
+import com.david.clicker.data.local.ProfileDao;
+import com.david.clicker.data.local.ProfileDatabase;
 
 import java.util.List;
 

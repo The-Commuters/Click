@@ -1,4 +1,7 @@
-package com.david.clicker;
+package com.david.clicker.data.gameApi;
+
+import com.david.clicker.data.entities.Profile;
+import com.david.clicker.data.entities.Profiles;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

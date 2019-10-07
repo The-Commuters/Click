@@ -1,4 +1,4 @@
-package com.david.clicker;
+package com.david.clicker.data.entities;
 
 import com.google.gson.annotations.SerializedName;
 
