@@ -26,6 +26,9 @@ public interface ProfileDao {
     @Query("DELETE FROM profile_table")
     void deleteAllProfiles();
 
+    @Query("SELECT * FROM profile_table WHERE email = :id")
+    Profile findByUserId(String id);
+
     @Query("SELECT * FROM profile_table ORDER BY username ASC")
     LiveData<List<Profile>> getAllProfiles();
 }
