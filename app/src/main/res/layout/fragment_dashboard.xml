@@ -32,8 +32,6 @@
 
 
             android:text="@{String.valueOf(Profile.score)}"
-            android:textSize="36sp"
-
 
             android:textSize="36sp"
             app:layout_constraintBottom_toBottomOf="parent"
