@@ -21,12 +21,12 @@ public interface GameApi {
 
     @Headers("Content-Type: application/json")
     @POST("profiles")
-    Call<Integer> createProfile(@Body Profile profile);
+    Call<Void> createProfile(@Body Profile profile);
 
     @Headers("Content-Type: application/json")
     @PUT("profiles/{username}")
-    Call<Integer> updateProfile(@Path("username") String username, @Body Profile profile);
+    Call<Void> updateProfile(@Path("username") String username, @Body Profile profile);
 
     @DELETE("profiles/{username}")
-    Call<Integer> deleteProfile(@Path("username") String username);
+    Call<Void> deleteProfile(@Path("username") String username);
 }
