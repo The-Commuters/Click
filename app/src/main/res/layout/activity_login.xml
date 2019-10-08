@@ -28,13 +28,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/edit_text_email"
-                android:text="Email" />
+                android:text="Username" />
 
             <EditText
-                android:id="@+id/edit_text_email"
+                android:id="@+id/edit_text_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:lines="1"
                 android:ellipsize="end"
                 android:textSize="20sp" />
@@ -67,10 +67,11 @@
             android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:layout_marginBottom="8dp"
             android:background="@color/colorEncourage"
-            android:textColor="@color/colorEncourageContrast"
-            android:layout_marginBottom="8dp" />
+            android:onClick="login"
+            android:text="Login"
+            android:textColor="@color/colorEncourageContrast" />
 
         <Button
             android:id="@+id/register"

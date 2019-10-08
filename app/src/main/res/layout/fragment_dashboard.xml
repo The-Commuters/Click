@@ -8,7 +8,7 @@
     <data>
         <variable
             name="Profile"
-            type="com.david.clicker.data.entities.Profile"
+            type="com.commuters.clicker.data.entities.Profile"
             />
     </data>
 

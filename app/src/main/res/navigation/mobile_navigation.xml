@@ -7,24 +7,24 @@
 
     <fragment
         android:id="@+id/navigation_game"
-        android:name="com.david.clicker.ui.dashboard.DashboardFragment"
+        android:name="com.commuters.clicker.ui.dashboard.DashboardFragment"
         android:label="@string/title_game"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_upgrade"
-        android:name="com.david.clicker.ui.notifications.NotificationsFragment"
+        android:name="com.commuters.clicker.ui.notifications.NotificationsFragment"
         android:label="@string/title_upgrade"
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
         android:id="@+id/navigation_highscore"
-        android:name="com.david.clicker.ui.highscore.HighscoreFragment"
+        android:name="com.commuters.clicker.ui.highscore.HighscoreFragment"
         android:label="@string/title_highscore"
         tools:layout="@layout/fragment_highscore" />
     <activity
         android:id="@+id/loginActivity"
-        android:name="com.david.clicker.ui.login.LoginActivity"
+        android:name="com.commuters.clicker.ui.login.LoginActivity"
         android:label="activity_login"
         tools:layout="@layout/activity_login" />
 </navigation>
