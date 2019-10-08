@@ -9,11 +9,15 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.commuters.clicker.data.entities.Profile;
+import com.commuters.clicker.ui.profile.ProfileActivity;
 import com.commuters.clicker.ui.login.LoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -34,6 +38,14 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
+        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        mainViewModel.getLocalProfile().observe(this, new Observer<Profile>() {
+            @Override
+            public void onChanged(Profile profile) {
+                localProfile = profile;
+            }
+        });
     Login();
 
     }
@@ -53,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.open_profile:
+                showProfile();
+                return true;
+
             case R.id.open_settings:
                 showSettings();
                 return true;
@@ -63,8 +79,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showSettings() {
-        Toast.makeText(MainActivity.this, "Open settings", Toast.LENGTH_SHORT);
+        Toast.makeText(this, "Open settings", Toast.LENGTH_SHORT);
     }
 
+    private void showProfile() {
+        Profile profile = localProfile;
+        Intent intent = new Intent(this, ProfileActivity.class);
+        intent.putExtra(ProfileActivity.EXTRA_SCORE, profile.getScore());
+        intent.putExtra(ProfileActivity.EXTRA_USERNAME, profile.getUsername());
+        intent.putExtra(ProfileActivity.EXTRA_EMAIL, profile.getEmail());
+        startActivity(intent);
+    }
 
 }

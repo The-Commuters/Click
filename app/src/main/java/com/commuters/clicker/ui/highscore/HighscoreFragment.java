@@ -51,7 +51,6 @@ public class HighscoreFragment extends Fragment {
                 intent.putExtra(ProfileActivity.EXTRA_SCORE, profile.getScore());
                 intent.putExtra(ProfileActivity.EXTRA_USERNAME, profile.getUsername());
                 intent.putExtra(ProfileActivity.EXTRA_EMAIL, profile.getEmail());
-                intent.putExtra(ProfileActivity.EXTRA_PASSWORD, profile.getPassword());
                 startActivity(intent);
             }
         });
