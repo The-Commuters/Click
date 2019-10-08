@@ -1,4 +1,4 @@
-package com.commuters.clicker.ui.notifications;
+package com.commuters.clicker.ui.upgrades;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.commuters.clicker.R;
 
-public class NotificationsFragment extends Fragment {
+public class UpgradesFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
+    private UpgradesViewModel upgradesViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                ViewModelProviders.of(this).get(NotificationsViewModel.class);
+        upgradesViewModel =
+                ViewModelProviders.of(this).get(UpgradesViewModel.class);
         View root = inflater.inflate(R.layout.fragment_notifications, container, false);
         final TextView textView = root.findViewById(R.id.text_notifications);
-        notificationsViewModel.getText().observe(this, new Observer<String>() {
+        upgradesViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

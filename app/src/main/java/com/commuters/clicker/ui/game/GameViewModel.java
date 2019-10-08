@@ -1,12 +1,10 @@
-package com.commuters.clicker.ui.dashboard;
+package com.commuters.clicker.ui.game;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -17,13 +15,13 @@ import com.commuters.clicker.data.entities.Profile;
 import com.commuters.clicker.data.repository.ProfileRepository;
 
 
-public class DashboardViewModel extends AndroidViewModel {
+public class GameViewModel extends AndroidViewModel {
 
     private ProfileRepository profileRepository;
     private LiveData<Profile> localProfile;
 
 
-    public DashboardViewModel(@NonNull Application application) {
+    public GameViewModel(@NonNull Application application) {
         super(application);
         profileRepository = new ProfileRepository(application);
         localProfile = profileRepository.getLocalProfile();

@@ -1,6 +1,5 @@
-package com.commuters.clicker.ui.dashboard;
+package com.commuters.clicker.ui.game;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,15 +11,13 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.commuters.clicker.data.entities.Profile;
 import com.commuters.clicker.databinding.FragmentDashboardBinding;
-import com.commuters.clicker.ui.profile.ProfileViewModel;
 
-public class DashboardFragment extends Fragment {
+public class GameFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private GameViewModel gameViewModel;
 
     FragmentDashboardBinding bindingClicker;
 
@@ -32,8 +29,8 @@ public class DashboardFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        dashboardViewModel = new ViewModelProvider(this).get(DashboardViewModel.class);
-        dashboardViewModel.getLocalProfile().observe(this, new Observer<Profile>() {
+        gameViewModel = new ViewModelProvider(this).get(GameViewModel.class);
+        gameViewModel.getLocalProfile().observe(this, new Observer<Profile>() {
             @Override
             public void onChanged(Profile profile) {
               localprofile = profile;
@@ -58,7 +55,7 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        dashboardViewModel.update(localprofile);
+        gameViewModel.update(localprofile);
 
         Log.d("Frag", "I was killed");
 
