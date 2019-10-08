@@ -2,13 +2,17 @@ package com.david.clicker.data.entities;
 
 
 import androidx.annotation.NonNull;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
+import androidx.databinding.library.baseAdapters.BR;
+
 import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 
 @Entity(tableName = "profile_table", indices = {@Index(value = "username", unique = true)})
-public class Profile {
+public class Profile extends BaseObservable {
     @NonNull
     @PrimaryKey
     private String username;
@@ -16,6 +20,7 @@ public class Profile {
     private String email;
 
     private String password;
+
 
     private int score;
 
@@ -40,6 +45,7 @@ public class Profile {
     }
 
     public void setScore(int score) {
+        notifyPropertyChanged(BR.score);
         this.score = score;
     }
 
@@ -67,6 +73,8 @@ public class Profile {
         return password;
     }
 
+
+    @Bindable
     public int getScore() {
         return score;
     }
