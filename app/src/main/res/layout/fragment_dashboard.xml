@@ -6,9 +6,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-       <!-- <variable
-            name="GameState"
-            type="com.usn.clickergame.GameState" />-->
         <variable
             name="Profile"
             type="com.david.clicker.data.entities.Profile"
