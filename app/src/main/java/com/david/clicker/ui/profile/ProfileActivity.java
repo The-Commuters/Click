@@ -24,7 +24,6 @@ public class ProfileActivity extends AppCompatActivity {
     public static String EXTRA_SCORE = "score";
     public static String EXTRA_USERNAME = "username";
     public static String EXTRA_EMAIL = "email";
-    public static String EXTRA_PASSWORD = "password";
 
     private Bundle extras;
     private ProfileViewModel profileViewModel;
@@ -44,9 +43,13 @@ public class ProfileActivity extends AppCompatActivity {
         usernameField = findViewById(R.id.text_view_username);
         emailField = findViewById(R.id.text_view_email);
 
-        scoreField.setText(Integer.toString(1000));
-        usernameField.setText("David");
-        emailField.setText("");
+        String score = Integer.toString(extras.getInt(EXTRA_SCORE));
+        String username = extras.getString(EXTRA_USERNAME);
+        String email = extras.getString(EXTRA_EMAIL);
+
+        scoreField.setText(score);
+        usernameField.setText(username);
+        emailField.setText(email);
 
 
     }
@@ -75,7 +78,7 @@ public class ProfileActivity extends AppCompatActivity {
         String email = "";
         String password = "";
 
-        if (username.trim().isEmpty()) {
+        if (username == null || username.trim().isEmpty()) {
             toast("Please enter a username");
             return;
         }
@@ -85,11 +88,25 @@ public class ProfileActivity extends AppCompatActivity {
             return;
         }
 
-        if (password.trim().isEmpty()) {
+        if (password == null || password.trim().isEmpty()) {
             toast("Please enter a password");
             return;
         }
         profileViewModel.insert(new Profile(username, email, password));
+    }
+
+    private boolean validateProfile(String username, String password) {
+        if (username == null || username.trim().isEmpty()) {
+            toast("Please enter a username");
+            return false;
+        }
+
+        if (password == null || password.trim().isEmpty()) {
+            toast("Please enter a password");
+            return false;
+        }
+
+        return true;
     }
 
     private void toast(String text) {
