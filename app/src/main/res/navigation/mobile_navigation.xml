@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_game">
+    app:startDestination="@id/navigation_game">
 
     <fragment
         android:id="@+id/navigation_game"
@@ -22,4 +22,9 @@
         android:name="com.david.clicker.ui.highscore.HighscoreFragment"
         android:label="@string/title_highscore"
         tools:layout="@layout/fragment_highscore" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.david.clicker.ui.login.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
 </navigation>

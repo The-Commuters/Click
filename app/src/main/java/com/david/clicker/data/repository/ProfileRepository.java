@@ -22,6 +22,12 @@ public class ProfileRepository {
         allProfiles = profileDao.getAllProfiles();
     }
 
+    public Profile query ( String profile) {
+
+        return profileDao.findByUserId(profile);
+    }
+
+
     public void insert(Profile profile) {
         new insertProfileAsyncTask(profileDao).execute(profile);
     }
