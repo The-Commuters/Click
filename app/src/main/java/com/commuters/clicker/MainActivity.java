@@ -23,7 +23,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+
     static final int LOGIN = 1;  // The request code
+
+    Profile localProfile;
+    MainViewModel mainViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,4 +1,4 @@
-package com.david.clicker;
+package com.commuters.clicker;
 
 import android.app.Application;
 
@@ -6,8 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.david.clicker.data.entities.Profile;
-import com.david.clicker.data.repository.ProfileRepository;
+import com.commuters.clicker.data.entities.Profile;
+import com.commuters.clicker.data.repository.ProfileRepository;
 
 public class MainViewModel extends AndroidViewModel {
 
