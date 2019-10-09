@@ -31,17 +31,17 @@ public class LoginViewModel extends AndroidViewModel {
         localProfile = profileRepository.getLocalProfile();
     }
 
-  public void readOnlineProfile(String username, Callback<Profile> callback) {
-      profileRepository.readOnlineProfile(username, callback );
-  }
+    public void readOnlineProfile(String username, Callback<Profile> callback) {
+        profileRepository.readOnlineProfile(username, callback );
+    }
 
-  public LiveData<Profile> getLocalProfile(){
+    public LiveData<Profile> getLocalProfile(){
         return  localProfile;
-  }
+    }
 
-  public void deleteLocalProfile() {
+    public void deleteLocalProfile() {
         profileRepository.deleteLocalProfile();
-  }
+    }
     public void insert(Profile profile) {
         profileRepository.insertLocalProfile(profile);
     }
