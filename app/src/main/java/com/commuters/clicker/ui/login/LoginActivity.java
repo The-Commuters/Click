@@ -1,5 +1,6 @@
 package com.commuters.clicker.ui.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.commuters.clicker.R;
 import com.commuters.clicker.data.entities.Profile;
 import com.commuters.clicker.data.local.ProfileDao;
+import com.commuters.clicker.ui.register.RegisterActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,6 +30,8 @@ public class LoginActivity extends AppCompatActivity {
 
     Profile profile;
 
+    static final int REGISTER = 2;
+
     ProfileDao profileDao;
     private LoginViewModel loginViewModel;
 
@@ -42,35 +46,21 @@ public class LoginActivity extends AppCompatActivity {
 
         final Button loginButton = findViewById(R.id.login);
 
+        final Button registerButton = findViewById(R.id.register);
+
+
+
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
 
-/*
-       loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Log.d("Login", "I was clicked");
-
-                Login(v);
-
-                //final Intent returnIntent = new Intent();
-
-                //http://www.acarlstein.com/?p=4029
-
-
-                //LiveData<Profile> liveProfile = loginViewModel.readOnlineProfile("Markus");
-               // Log.d("LP", liveProfile.getValue().toString());
-
-                //Profile profile = liveProfile.getValue();
 
 
 
+    }
 
-                *//*setResult(Activity.RESULT_OK, returnIntent);
-                finish();*//*
+    public void register(View v) {
+        Intent registerIntent = new Intent(this, RegisterActivity.class);
 
-            }
-        });*/
+        startActivityForResult(registerIntent, REGISTER);
     }
 
     public void login(View v) {

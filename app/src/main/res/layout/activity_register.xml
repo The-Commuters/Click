@@ -88,6 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Register"
+            android:onClick="register"
             android:background="@color/colorEncourage"
             android:textColor="@color/colorEncourageContrast"
             android:layout_marginBottom="8dp" />

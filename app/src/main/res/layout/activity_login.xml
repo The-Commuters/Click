@@ -75,10 +75,11 @@
 
         <Button
             android:id="@+id/register"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Register"
-            style="@style/Widget.AppCompat.Button.Borderless" />
+            android:onClick="register"
+            android:text="Register" />
 
     </LinearLayout>
 </layout>
