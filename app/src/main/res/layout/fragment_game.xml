@@ -81,7 +81,7 @@
                     android:id="@+id/upgrade1NameMain"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="@string/clicking_strength"
                     android:textColor="@android:color/black" />
 
                 <TextView
@@ -89,7 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="end"
-                    android:text=""
+                    android:text="@{String.valueOf(Profile.click_strength)}"
                     android:textColor="@android:color/black" />
                 android:text="4"
                 /><!--kilde https://stackoverflow.com/questions/2099249/aligning-textviews-on-the-left-and-right-edges-in-android-layout-->
@@ -103,7 +103,7 @@
                     android:id="@+id/upgrade2NameMain"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="@string/combo_multiplier"
                     android:textColor="@android:color/black" />
 
                 <TextView
@@ -111,7 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="end"
-                    android:text=""
+                    android:text="@{String.valueOf(Profile.combo_multiplier)}"
                     android:textColor="@android:color/black" /><!--kilde https://stackoverflow.com/questions/2099249/aligning-textviews-on-the-left-and-right-edges-in-android-layout-->
                 android:text="4820" />
             </LinearLayout>
