@@ -3,4 +3,10 @@
     <string name="title_highscore">Highscores</string>
     <string name="title_game">Game</string>
     <string name="title_upgrade">Upgrades</string>
+
+    <string name="click_strength_description">increases the number of points earned eatch click of the button</string>
+    <string name="combo_multiplier_description">increases the bonus from getting a combo</string>
+    <string name="combo_speed_description">reduces the number of clicks needed for a combo</string>
+    <string name="clicking_strength">Clicking Strength</string>
+    <string name="combo_multiplier">Combo Multiplier</string>
 </resources>
