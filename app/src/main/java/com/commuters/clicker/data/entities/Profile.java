@@ -35,12 +35,12 @@ public class Profile extends BaseObservable {
 
     // Cost-variables
     final static int CLICK_STRENGTH_COST_BASE = 10;
-    final static int COMBO_STRENGTH_COST_BASE = 80;
+    final static int COMBO_MULTIPLIER_COST_BASE = 80;
     final static int COMBO_SPEED_COST_BASE = 200;
 
     // Constants to calculate the cost of upgrades
     final static double CLICK_STRENGTH_GROWTH_RATE = 1.2;
-    final static double COMBO_STRENGTH_GROWTH_RATE = 0.5;
+    final static double COMBO_MULTIPLIER_GROWTH_RATE = 0.5;
     final static double COMBO_SPEED_GROWTH_RATE = 0.3;
 
     public Profile(
