@@ -1,6 +1,5 @@
 package com.commuters.clicker.data.entities;
 
-
 import androidx.annotation.NonNull;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
@@ -9,24 +8,8 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-
 @Entity(tableName = "profile_table", indices = {@Index(value = "username", unique = true)})
 public class Profile extends BaseObservable {
-    @NonNull
-    @PrimaryKey
-    private String username;
-
-    private String email;
-
-    private String password;
-
-    private int score;
-
-    private int click_strength;
-
-    private int combo_multiplier;
-
-    private int combo_speed;
 
     // Clicking constants
     final static int CLICK_STRENGTH_BASE = 1; // hvor mangen poeng som blir tjent per click
@@ -43,6 +26,16 @@ public class Profile extends BaseObservable {
     final static double COMBO_MULTIPLIER_GROWTH_RATE = 0.5;
     final static double COMBO_SPEED_GROWTH_RATE = 0.3;
 
+    @NonNull
+    @PrimaryKey
+    private String username;
+    private String email;
+    private String password;
+    private int score;
+    private int click_strength;
+    private int combo_multiplier;
+    private int combo_speed;
+
     public Profile(
             String username,
             String email,
@@ -57,24 +50,6 @@ public class Profile extends BaseObservable {
         this.combo_speed = 0;
     }
 
-    public void setScore(int score) {
-        notifyPropertyChanged(BR.score);
-        this.score = score;
-    }
-
-    public void setClick_strength(int click_strength) {
-        notifyPropertyChanged(BR.click_strength);
-        this.click_strength = click_strength;
-    }
-
-    public void setCombo_multiplier(int combo_multiplier) {
-        this.combo_multiplier = combo_multiplier;
-    }
-
-    public void setCombo_speed(int combo_speed) {
-        this.combo_speed = combo_speed;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -87,10 +62,14 @@ public class Profile extends BaseObservable {
         return password;
     }
 
-
     @Bindable
     public int getScore() {
         return score;
+    }
+
+    public void setScore(int score) {
+        notifyPropertyChanged(BR.score);
+        this.score = score;
     }
 
     @Bindable
@@ -98,9 +77,19 @@ public class Profile extends BaseObservable {
         return click_strength;
     }
 
+    public void setClick_strength(int click_strength) {
+        notifyPropertyChanged(BR.click_strength);
+        this.click_strength = click_strength;
+    }
+
     @Bindable
     public int getCombo_multiplier() {
         return combo_multiplier;
+    }
+
+    public void setCombo_multiplier(int combo_multiplier) {
+        notifyPropertyChanged(BR.combo_multiplier);
+        this.combo_multiplier = combo_multiplier;
     }
 
     @Bindable
@@ -108,9 +97,8 @@ public class Profile extends BaseObservable {
         return combo_speed;
     }
 
-    public void incrementClickStrength() {
-        this.setClick_strength(this.getClick_strength() + (int) (CLICK_STRENGTH_GROWTH_RATE));
-        this.setScore(this.getScore() - this.getClickStrengthCost());
+    public void setCombo_speed(int combo_speed) {
+        this.combo_speed = combo_speed;
     }
 
     @Bindable
@@ -118,4 +106,12 @@ public class Profile extends BaseObservable {
         notifyPropertyChanged(BR.clickStrengthCost);
         return (int) (CLICK_STRENGTH_COST_BASE * (CLICK_STRENGTH_GROWTH_RATE * click_strength));
     }
-}
+
+    public void incrementClickStrength() {
+        if(this.getScore() >= this.getClickStrengthCost()){
+            this.setScore(score - this.getClickStrengthCost());
+            this.setClick_strength(click_strength + 1);
+        }
+    }
+    }
+
