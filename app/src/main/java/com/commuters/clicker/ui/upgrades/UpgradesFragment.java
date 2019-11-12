@@ -70,6 +70,14 @@ public class UpgradesFragment extends Fragment {
             }
         });
 
+        bindingUpgrades.comboMultiplierUpgradeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                localprofile.incrementComboMultiplier();
+                upgradesViewModel.update(localprofile);
+            }
+        });
+
         return root;
     }
 

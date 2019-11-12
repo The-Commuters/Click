@@ -113,5 +113,18 @@ public class Profile extends BaseObservable {
             this.setClick_strength(click_strength + 1);
         }
     }
+
+    @Bindable
+    public int getComboMultiplierCost(){
+        notifyPropertyChanged(BR.combo_multiplier);
+        return (int)(COMBO_MULTIPLIER_COST_BASE * (COMBO_MULTIPLIER_GROWTH_RATE * combo_multiplier));
+    }
+
+    public void incrementComboMultiplier() {
+        if(this.score >= this.getComboMultiplierCost()){
+            this.setScore(score - this.getComboMultiplierCost());
+            this.setCombo_multiplier(combo_multiplier + 1);
+            }
+        }
     }
 
