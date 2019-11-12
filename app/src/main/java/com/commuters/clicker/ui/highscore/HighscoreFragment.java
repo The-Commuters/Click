@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.commuters.clicker.R;
 import com.commuters.clicker.data.entities.Profile;
+import com.commuters.clicker.ui.game.GameViewModel;
 import com.commuters.clicker.ui.profile.ProfileActivity;
 
 import java.util.List;
@@ -23,8 +24,11 @@ import java.util.List;
 public class HighscoreFragment extends Fragment {
 
     private HighscoreViewModel highscoreViewModel;
+    private GameViewModel gameViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        gameViewModel = new ViewModelProvider(this).get(GameViewModel.class);
 
         View root = inflater.inflate(R.layout.fragment_highscore, container, false);
 
@@ -47,6 +51,7 @@ public class HighscoreFragment extends Fragment {
         highscoreAdapter.setOnItemClickListener(new HighscoreAdapter.onItemClickListener() {
             @Override
             public void onItemClick(Profile profile) {
+                gameViewModel.update(profile);
                 Intent intent = new Intent(getActivity(), ProfileActivity.class);
                 intent.putExtra(ProfileActivity.EXTRA_SCORE, profile.getScore());
                 intent.putExtra(ProfileActivity.EXTRA_USERNAME, profile.getUsername());
